@@ -76,7 +76,15 @@ var numberExample2 = 27
 var numberExample3 = 7
 var numberExample4 = 19
 
-
+const subtractSmall = (num1,num2) => {
+  // -Conditional for determining if num1 is smaller than num2 (or equals to since then it doesnt matter which order you subtract in), if true then num1 needs to get subtracted from num2.
+  if (num1 <= num2) {return num2 - num1}
+  // -Catch all for subtracting the other way since the only other possibility is num1 is larger than num2.
+  else return num1 - num2
+}
+console.log(subtractSmall(numberExample1,numberExample2))
+console.log(subtractSmall(numberExample3,numberExample4))
+console.log(subtractSmall(6,6))
 
 // --------------------5) Copy/paste your code from #4. Refactor your code to also accept non-number edge cases. Inform your user if the variable passed into the subtraction function is not a number.
 // Use the two sets of test variables provided below. Expected output: "Your input is not a number", 3
@@ -87,3 +95,13 @@ var numberExampleRefactor2 = "hello"
 
 var numberExampleRefactor3 = 27
 var numberExampleRefactor4 = 24
+
+
+const subtractSmallNonNumbers = (num1,num2) => {
+  // -added if statement which checks that the data type of num1 OR num2 is not a number. If true returns string message. Rest of code is the same with the only change being the first if statement being changed to else if.
+  if (typeof num1 !== "number" || typeof num2 !== "number") {return "your input is not a number"}
+  else if (num1 <= num2) {return num2 - num1}
+  else {return num1 - num2}
+}
+console.log(subtractSmallNonNumbers(numberExampleRefactor1,numberExampleRefactor2))
+console.log(subtractSmallNonNumbers(numberExampleRefactor3,numberExampleRefactor4))
